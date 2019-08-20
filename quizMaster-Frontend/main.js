@@ -38,8 +38,11 @@ function containers(){
       <button class="create">Create a New Quiz</button>
     </div>
     <div id="flex-container">
-      <div> Past Scores </div>
-      <div> Prizes </div>     
+      <div> Prizes </div>
+      <div> Past Scores </div>     
+      </div>
+      <div class="bottom-box">
+      <button class="logout">Logout</button>
     </div>
   </div>
   `
