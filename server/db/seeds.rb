@@ -14,10 +14,21 @@ ActiveRecord::Base.connection.tables.each do |t|
 end
 
 
-response = RestClient.get("https://opentdb.com/api.php?amount=10")
+response = RestClient.get("https://opentdb.com/api.php?amount=50")
 response_hash = JSON.parse(response)
-binding.pry
+#binding.pry
 
-response_hash["results"].each do |quiz|
- Quiz.create(category: quiz["category"], difficulty: quiz["difficulty"])
+response_hash["results"].each do |data|
+ Quiz.create(category: data["category"], difficulty: data["difficulty"])
 end
+
+
+response_hash["results"].each do |data|
+ question = Question.create(quiz_id: rand(1..50), query: data["question"], correct_answer: data["correct_answer"])
+ Answer.create(question_id: question.id, content: data["correct_answer"], correct: true)
+  data["incorrect_answers"].each do |answer|
+    Answer.create(question_id: question.id, content: answer, correct: false)
+  end
+end
+
+puts "Done Seeding :)"
