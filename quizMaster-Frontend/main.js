@@ -56,14 +56,6 @@ function mainOptions(){
 }
 
 
-
-
-
-
-
-
-
-
 //FETCH QUIZZES
 function fetchQuizzes(){
   fetch("http://localhost:3000/quizzes")
