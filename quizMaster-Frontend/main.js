@@ -1,7 +1,9 @@
 
 
 document.addEventListener("DOMContentLoaded", function(){
-  const loginForm = document.getElementById("login-form");
+
+const loginForm = document.getElementById("login-form")
+
 })
 
 
@@ -85,4 +87,4 @@ function slapQuizzesOnDom(data){
 
 
 
-//
+
