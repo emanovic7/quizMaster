@@ -5,19 +5,29 @@
       <link rel="stylesheet" href="style.css">
       <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
   </head>
-  <body>
+
+  <body class="main" id="main">
 
     <h1 id="logo">QuizMaster</h1>
-      <div id="login-form">
-          <form id="login"> 
-              <input type="text" name="username" value="" placeholder="Enter your name"/>
-              <input type="submit" name="submit" value="login"/>
-            </form>  
-      </div>
-    <div id="quizzes">
-      <ul id="quizzes-ul">
 
-      </ul>
+    <!-- Login -->
+      <div id="login-form" class="container">
+          <form class="user-login-form" id="login">
+              <input id="username" type="text" name="username" value="" placeholder="Enter your name"/>
+              <input type="submit" name="submit" value="login"/>
+          </form>
+      </div>
+
+    <!-- Options -->
+    <div id="main_options">
+
+    </div>
+
+
+    <div id="quizzes">
+      <!-- <ul id="quizzes-ul">
+
+      </ul> -->
     </div>
     <script type="text/javascript" src="main.js"></script>
   </body>
