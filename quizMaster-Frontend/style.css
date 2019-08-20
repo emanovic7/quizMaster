@@ -16,6 +16,10 @@ h1 {
     font-size: 8em;
 }
 
+#login-form {
+    text-align: center;
+}
+
 #quizzes {
     text-align: center;
 }

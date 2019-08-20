@@ -1,12 +1,15 @@
 
 
 document.addEventListener("DOMContentLoaded", function(){
+const loginForm = document.getElementById("login-form")
 
+ 
+})
   fetch("https://opentdb.com/api.php?amount=10")
   .then(response => response.json())
   .then(data => slapQuizzesOnDom(data))
   //.then(data => console.log(data.results))
-})
+
 
 
 function slapQuizzesOnDom(data){
