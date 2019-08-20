@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
 //LOGGING IN
 const loginForm = document.getElementById("login-form");
-loginForm.addEventListener("submit", loginUser)
+loginForm.addEventListener("submit", loginUser);
 
 
 function loginUser(){
   event.preventDefault();
   let name = event.target.querySelector("#username").value;
   if(name === ""){
-    alert("Username can't be empty!")
+    alert("Username can't be empty!");
   }
   else{
     const loginForm = document.getElementById("login-form");
@@ -26,9 +26,9 @@ function loginUser(){
 
 function containers(){
   const optionsDiv = document.getElementById("main_options");
-  let heading = document.createElement("h2")
+  let heading = document.createElement("h2");
   heading.innerHTML = `<h2>Welcome, choose an option below</h2>`
-  optionsDiv.append(heading)
+  optionsDiv.append(heading);
 }
 
 
