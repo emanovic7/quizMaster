@@ -32,3 +32,20 @@ response_hash["results"].each do |data|
 end
 
 puts "Done Seeding :)"
+
+
+
+
+# user clicks "start quiz"
+#           fetch:
+#           --quiz = Quiz.new(user_id: user.id, category: category, difficulty: difficulty)
+# quiz should have 10 questions
+#           --Question.create(quiz_id: quiz.id)
+#           --answers
+
+
+
+
+
+
+#####
