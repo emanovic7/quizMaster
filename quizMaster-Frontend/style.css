@@ -16,10 +16,55 @@ h1 {
     font-size: 8em;
 }
 
+#qm-logo {
+    position: relative;
+    -webkit-animation-name: mymove; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 5s; /* Safari 4.0 - 8.0 */
+    animation-name: mymove 5s;
+    animation-duration: 5s;
+  }
+
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes mymove {
+    from {top: -50px;}
+    to {top: 50px;}
+  }
+  
+  /* Standard syntax */
+  @keyframes mymove {
+    from {top: -50px;}
+    to {top: 50px;}
+  }
+
 #login-form {
     text-align: center;
 }
 
+input[type=text], select {
+    width: 40%;
+    font-family: 'Acme', sans-serif;
+    font-size: 2em;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 40%;
+    font-family: 'Acme', sans-serif;
+    font-size: 2em;
+    background-color:red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+/*
 #quizzes {
     text-align: center;
 }
@@ -32,7 +77,7 @@ h1 {
     padding: 50px;
     margin: 20px;
 }
-
+*/
 
 /* Background pic
 <a href="https://ibb.co/bQtNsfM"><img src="https://i.ibb.co/PFk1cSv/jerome-4-NACu8-Tx-Qz-Q-unsplash.jpg" alt="jerome-4-NACu8-Tx-Qz-Q-unsplash" border="0"></a><br /><a target='_blank' href='https://movieplotholes.com/star-wars-a-new-hope-plot-holes'>star wars a new hope mistakes</a><br />
