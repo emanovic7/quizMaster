@@ -64,7 +64,75 @@ input[type=text], select {
     border-radius: 4px;
     cursor: pointer;
   }
-/*
+
+  h2 {
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    color: red;
+    font-size: 4em;
+  }
+
+  .box {
+      text-align: center;
+      width: 1200px;
+      height: 900px;
+      background-color: lightgrey;
+      border-radius: 5%;
+      margin: auto;
+  }
+
+  .create {
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    color: black;
+    font-size: 2em;
+    width: 50%;
+    padding: 12px 20px;
+    /*margin: 8px 0;*/
+    margin: auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .inner-box {
+      text-align: center;
+      width: 900px;
+      height: 100px;
+      background-color: white;
+      border-radius: 4px;
+      margin: auto;
+  }
+
+  #flex-container {
+      display: flex;
+      margin: 20px 150px 20px 150px;
+      background-color: white;
+      border-radius: 4px;
+    }
+
+  #flex-container > div {
+    background-color: lightcyan;
+    font-family: 'Acme', sans-serif;
+    color: rgb(17, 48, 48);
+    margin: auto;
+    padding: 150px;
+    font-size: 2em;
+    border-radius: 4px;
+  }
+
+  /*
+  #main-options {
+    text-align: center;
+    border: grey solid 1px;
+    padding: 1rem;
+    width: 15rem;
+    height: 25rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px #e04b52
+  }
+  
 #quizzes {
     text-align: center;
 }
@@ -78,16 +146,6 @@ input[type=text], select {
     margin: 20px;
 }
 
-.main_options {
-  text-align: center;
-  border: grey solid 1px;
-  padding: 1rem;
-  width: 15rem;
-  height: 25rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-  box-shadow: 3px 4px #e04b52
-}
 
 
 /* Background pic

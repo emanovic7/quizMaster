@@ -15,7 +15,7 @@ loginForm.addEventListener("submit", loginUser);
 function loginUser(){
   event.preventDefault();
   let name = event.target.querySelector("#username").value;
-  //console.log(event.target.querySelector("#username"))
+  // console.log(event.target.querySelector("#username"))
   if(name === ""){
     alert("Username can't be empty!");
   }
@@ -28,10 +28,22 @@ function loginUser(){
 
 
 function containers(){
-  const optionsDiv = document.getElementById("main_options");
-  let heading = document.createElement("h2");
-  heading.innerHTML = `<h2>Welcome, choose an option below</h2>`
-  optionsDiv.append(heading);
+  const mainContainer = document.getElementById("main-container");
+  let loginChange = document.createElement("div");
+
+  loginChange.innerHTML = `
+  <div class="box">
+  <h2>Welcome! Choose an option below:</h2>
+    <div class="inner-box">
+      <button class="create">Create a New Quiz</button>
+    </div>
+    <div id="flex-container">
+      <div> Past Scores </div>
+      <div> Prizes </div>     
+    </div>
+  </div>
+  `
+  mainContainer.append(loginChange);
 }
 
 
