@@ -1,0 +1,35 @@
+body {
+    background-image: url(https://i.ibb.co/PFk1cSv/jerome-4-NACu8-Tx-Qz-Q-unsplash.jpg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+#logo {
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    font-size: 8 em;
+    color: white;
+}
+
+h1 {
+    font-size: 8em;
+}
+
+#quizzes {
+    text-align: center;
+}
+
+#quizzes-ul {
+    width: 300px;
+    background-color:#D3D3D3;	
+    display: inline-block;
+    border: 15px solid red;
+    padding: 50px;
+    margin: 20px;
+}
+
+
+/* Background pic
+<a href="https://ibb.co/bQtNsfM"><img src="https://i.ibb.co/PFk1cSv/jerome-4-NACu8-Tx-Qz-Q-unsplash.jpg" alt="jerome-4-NACu8-Tx-Qz-Q-unsplash" border="0"></a><br /><a target='_blank' href='https://movieplotholes.com/star-wars-a-new-hope-plot-holes'>star wars a new hope mistakes</a><br />
+*/
