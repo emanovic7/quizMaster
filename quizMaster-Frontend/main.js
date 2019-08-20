@@ -15,6 +15,7 @@ loginForm.addEventListener("submit", loginUser);
 function loginUser(){
   event.preventDefault();
   let name = event.target.querySelector("#username").value;
+  //console.log(event.target.querySelector("#username"))
   if(name === ""){
     alert("Username can't be empty!");
   }
@@ -83,8 +84,3 @@ function slapQuizzesOnDom(data){
     ul.append(li)
   })
 }
-
-
-
-
-
