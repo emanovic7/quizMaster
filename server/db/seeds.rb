@@ -15,7 +15,7 @@ response_hash = JSON.parse(response)
 #QUIZES
 all_quizes = [];
 response_hash["results"].each do |data|
- all_quizes << Quiz.create(category: data["category"], difficulty: data["difficulty"])
+ all_quizes << Quiz.create(category: data["category"], difficulty: data["difficulty"], score: 0)
 end
 
 all_quizes.each do |quiz|
