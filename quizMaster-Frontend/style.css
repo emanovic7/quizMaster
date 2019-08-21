@@ -143,6 +143,40 @@ input[type=text], select {
       border-radius: 4px;
       margin: auto;
   }
+
+  #quiz-div {
+      text-align: center;
+      background-color: lightgray;
+      width: 900px;
+      height: 600px;
+      margin: auto;
+      border-radius: 4px;
+  }
+
+  .question-content {
+    text-align: center;
+    background-color: white;
+    width: 680px;
+    height: 200px;
+    margin: auto;
+    font-family: 'Acme', sans-serif;
+    color: red;
+    font-size: 2em;
+    padding: 20px;
+    border-radius: 4px;
+  }
+
+  .answer-button {
+    width: 40%;
+    font-family: 'Acme', sans-serif;
+    font-size: 2em;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
   /*
   #main-options {
     text-align: center;
@@ -172,4 +206,193 @@ input[type=text], select {
 
 /* Background pic
 <a href="https://ibb.co/bQtNsfM"><img src="https://i.ibb.co/PFk1cSv/jerome-4-NACu8-Tx-Qz-Q-unsplash.jpg" alt="jerome-4-NACu8-Tx-Qz-Q-unsplash" border="0"></a><br /><a target='_blank' href='https://movieplotholes.com/star-wars-a-new-hope-plot-holes'>star wars a new hope mistakes</a><br />
+*/
+
+
+
+
+
+
+
+/* body, html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background-image: url(https://i.ibb.co/PFk1cSv/jerome-4-NACu8-Tx-Qz-Q-unsplash.jpg);
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.bubble {
+    position: absolute;
+    top: 0;
+    font-size: 8em;
+    opacity: 0.5;
+    animation: flying 10s infinite linear;
+}
+
+.bubble:nth-child(1) {
+    position: absolute;
+    left: 10%;
+    font-size: 8em;
+    opacity: 0.5;
+    animation-duration: 15s;
+}
+
+.bubble:nth-child(2) {
+    position: absolute;
+    left: 5%;
+    font-size: 10em;
+    opacity: 0.5;
+    animation-duration: 11s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(3) {
+    position: absolute;
+    left: 60%;
+    font-size: 7em;
+    opacity: 0.5;
+    animation-duration: 10s;
+}
+
+.bubble:nth-child(4) {
+    position: absolute;
+    left: 30%;
+    font-size: 9em;
+    opacity: 0.5;
+    animation-duration: 12s;
+    animation-delay: .5s;
+}
+
+.bubble:nth-child(5) {
+    position: absolute;
+    left: 70%;
+    font-size: 8em;
+    opacity: 0.5;
+    animation-duration: 9s;
+}
+
+.bubble:nth-child(6) {
+    position: absolute;
+    left: 40%;
+    font-size: 7em;
+    opacity: 0.5;
+    animation-duration: 14s;
+    animation-delay: 0.5s;
+}
+
+.bubble:nth-child(7) {
+    position: absolute;
+    left: 80%;
+    font-size: 9em;
+    opacity: 0.5;
+    animation-duration: 11s;
+}
+
+.bubble:nth-child(8) {
+    position: absolute;
+    left: 95%;
+    font-size: 10em;
+    opacity: 0.5;
+    animation-duration: 10s;
+}
+
+.bubble:nth-child(9) {
+    position: absolute;
+    left: 90%;
+    font-size: 8em;
+    opacity: 0.5;
+    animation-duration: 9s;
+    animation-delay: 0.5s;
+}
+
+.bubble:nth-child(10) {
+    position: absolute;
+    left: 35%;
+    font-size: 9em;
+    opacity: 0.5;
+    animation-duration: 12s;
+/*}*/
+
+/*
+@keyframes flying {
+    0% {
+        top: -100px;
+        transform: translateY(0);
+    }
+
+    50% {
+        top: 500px;
+        transform: translateY(100px);
+    }
+
+    100% {
+        top: 1080px;
+        transform: translateY(-200px);
+    }
+}
+
+#q1 {
+    color: red;
+    font-weight: strong;
+}
+
+#q2 {
+    color: blue;
+    font-weight: strong;
+} 
+
+#q3 {
+    color: purple;
+    font-weight: strong;
+}
+
+#q4 {
+    color: blueviolet;
+    font-weight: strong;
+}
+
+#q5 {
+    color: white;
+    font-weight: strong;
+}
+
+#q6 {
+    color: blue;
+    font-weight: strong;
+}
+
+#q7 {
+    color: blue;
+    font-weight: strong;
+} 
+
+#q8 {
+    color: purple;
+    font-weight: strong;
+} 
+
+#q9 {
+    color: red;
+    font-weight: strong;
+}
+
+#q10 {
+    color: white;
+    font-weight: strong;
+} 
 */

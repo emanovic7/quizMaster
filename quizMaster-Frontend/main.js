@@ -86,28 +86,43 @@ function showQuiz(quiz){
   // setTimeout(function(){ h3.remove() }, 4000);
 
   let tenQuestions = shuffleArray(quiz.questions);
-  tenQuestions.forEach(function(question){
-    singleQuestion(question)
-  })
+  // tenQuestions.forEach(function(question){
+  //   singleQuestion(question)
+  // })
+  singleQuestion(tenQuestions[0])
 }
 
 
 function singleQuestion(question){
-  let quizUl = document.createElement("ul");
-  quizUl.id = "quiz-ul";
-
-  let li = document.createElement("li")
-
-  li.innerHTML = `
-    <h4>${question.query}</h4>
-    <button>${question.correct_answer}</button>
-    <button>${question.incorrect_answer_a}</button>
-    <button>${question.incorrect_answer_b}</button>
-    <button>${question.incorrect_answer_c}</button>
+  console.log(question)
+  const answerArray = []
+  answerArray.push(question.correct_answer, question.incorrect_answer_a, question.incorrect_answer_b, question.incorrect_answer_c)
+  console.log(answerArray)
+  const mainContainer = document.getElementById("main-container");
+  let quizDiv = document.createElement("div");
+  quizDiv.id = "quiz-div";
+  quizDiv.innerHTML = `
+  <div class="question-content">${question.query}</div>
+  <div class="answers">
+  <button class="answer-button">${question.correct_answer}</button>
+     <button class="answer-button">${question.incorrect_answer_a}</button>
+     <button class="answer-button">${question.incorrect_answer_b}</button>
+     <button class="answer-button">${question.incorrect_answer_c}</button>
+  </div>
   `
 
-  quizUl.append(li)
-  mainContainer.append(quizUl)
+  // let li = document.createElement("li")
+
+  // li.innerHTML = `
+  //   <h4>${question.query}</h4>
+  //   <button>${question.correct_answer}</button>
+  //   <button>${question.incorrect_answer_a}</button>
+  //   <button>${question.incorrect_answer_b}</button>
+  //   <button>${question.incorrect_answer_c}</button>
+  // `
+
+  // quizUl.append(li)
+  mainContainer.append(quizDiv)
 }
 
 
