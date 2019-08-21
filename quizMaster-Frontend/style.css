@@ -36,6 +36,131 @@ h1 {
     to {top: 50px;}
   }
 
+.bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.bubble {
+    position: absolute;
+    bottom: 0;
+    font-size: 4em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation: flying 10s infinite ease-in;
+}
+
+.bubble:nth-child(1) {
+    position: absolute;
+    bottom: 0;
+    font-size: 5em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation-duration: 8s;
+}
+
+.bubble:nth-child(2) {
+    position: absolute;
+    bottom: 0;
+    font-size: 8em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    font-size: 3em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation-delay: 5s;
+}
+
+.bubble:nth-child(4) {
+    position: absolute;
+    bottom: 0;
+    font-size: 7em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation-delay: 5s;
+}
+
+.bubble:nth-child(5) {
+    position: absolute;
+    bottom: 0;
+    font-size: 6em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation-delay: 7s;
+}
+
+.bubble:nth-child(6) {
+    position: absolute;
+    bottom: 0;
+    font-size: 5em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(7) {
+    position: absolute;
+    bottom: 0;
+    font-size: 7em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(8) {
+    position: absolute;
+    bottom: 0;
+    font-size: 5em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation-delay: 7s;
+}
+
+.bubble:nth-child(9) {
+    position: absolute;
+    bottom: 0;
+    font-size: 6em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation-delay: 5s;
+}
+
+.bubble:nth-child(10) {
+    position: absolute;
+    bottom: 0;
+    font-size: 4em;
+    color: #f1f1f1
+    opacity: 0.5;
+    animation-delay: 3s;
+}
+
+@keyframes flying {
+    0% {
+        bottom: -100px;
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(100px);
+    }
+
+    0% {
+        bottom: 1080px;
+        transform: translateX(-200);
+    }
+}
+
 #login-form {
     text-align: center;
 }
@@ -112,7 +237,7 @@ input[type=text], select {
     }
 
   #flex-container > div {
-    background-color: lightcyan;
+    background-color: rgb(73, 85, 252);
     font-family: 'Acme', sans-serif;
     color: rgb(17, 48, 48);
     margin: auto;
