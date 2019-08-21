@@ -1,8 +1,11 @@
+body, html {
+    width: 100vw;
+    height: 100vh;
+}
+
 body {
     background-image: url(https://i.ibb.co/PFk1cSv/jerome-4-NACu8-Tx-Qz-Q-unsplash.jpg);
     background-size: cover;
-    width: 100vw;
-    height: 100vh;
     margin: 0;
     padding: 0;
 }
