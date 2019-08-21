@@ -83,6 +83,12 @@ function slapQuizzesOnDom(quizzes){
 }
 
 function showQuiz(quiz){
+  const mainContainer = document.getElementById("main-container");
+  let scoreButton = document.createElement("button")
+  scoreButton.innerHTML = `
+    <h3 align="center">Current Score: ${quiz.score}</h3>
+  `
+  mainContainer.append(scoreButton)
   // //countdown
   // let h3 = document.createElement("h3");
   // h3.innerText = "Quiz starting in 3..2..1"
@@ -103,33 +109,38 @@ function singleQuestion(question){
   answerArray.push(question.correct_answer, question.incorrect_answer_a, question.incorrect_answer_b, question.incorrect_answer_c)
 
   let mixedAns =  shuffleArray(answerArray);
-  console.log(mixedAns)
+  console.log(mixedAns[0].correct)
 
   const mainContainer = document.getElementById("main-container");
   let quizDiv = document.createElement("div");
   quizDiv.id = "quiz-div";
   quizDiv.innerHTML = `
   <div class="question-content">${question.query}</div>
-  <div class="answers">
-  <button class="answer-button">${mixedAns[0]}</button>
+  <div id="ans-btn" class="answers">
+     <button class="answer-button">${mixedAns[0]}</button>
      <button class="answer-button">${mixedAns[1]}</button>
      <button class="answer-button">${mixedAns[2]}</button>
      <button class="answer-button">${mixedAns[3]}</button>
   </div>
   `
 
-  // let li = document.createElement("li")
+  quizDiv.addEventListener("mouseover", func1, false);
+  quizDiv.addEventListener("mouseout", func2, false);
 
-  // li.innerHTML = `
-  //   <h4>${question.query}</h4>
-  //   <button>${question.correct_answer}</button>
-  //   <button>${question.incorrect_answer_a}</button>
-  //   <button>${question.incorrect_answer_b}</button>
-  //   <button>${question.incorrect_answer_c}</button>
-  // `
-
-  // quizUl.append(li)
   mainContainer.append(quizDiv)
+}
+
+
+function func1(){
+  if(event.target.classList.contains("answer-button")){
+   event.target.setAttribute("style", "background-color:blue;")
+  }
+}
+
+function func2(){
+  if(event.target.classList.contains("answer-button")){
+   event.target.setAttribute("style", "background-color:")
+  }
 }
 
 
