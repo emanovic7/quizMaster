@@ -133,7 +133,7 @@ function singleQuestion(question){
 
 function func1(){
   if(event.target.classList.contains("answer-button")){
-   event.target.setAttribute("style", "background-color:blue;")
+   event.target.setAttribute("style", "background-color:green;")
   }
 }
 
