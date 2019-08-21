@@ -1,10 +1,23 @@
 document.addEventListener("DOMContentLoaded", function(){
-
   const loginForm = document.getElementById("login-form")
-
 })
+
+
 //Global Variables:
 const mainContainer = document.getElementById("main-container");
+
+//shuffle returned data
+function shuffleArray(array){
+  for(let i=array.length-1; i>0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  //pick first 10
+  return array;
+}
+
+
+
 
 
 //LOGGING IN
@@ -60,15 +73,6 @@ function newQuiz(){
   .then(quizzes => slapQuizzesOnDom(quizzes))
 }
 
-//shuffle returned data
-function shuffleArray(array){
-  for(let i=array.length-1; i>0; i--){
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  //pick first 10
-  return array.slice(0,10);
-}
 
 //SLAP ON DOM
 function slapQuizzesOnDom(quizzes){
@@ -85,7 +89,7 @@ function showQuiz(quiz){
   // mainContainer.append(h3)
   // setTimeout(function(){ h3.remove() }, 4000);
 
-  let tenQuestions = shuffleArray(quiz.questions);
+  let tenQuestions = shuffleArray(quiz.questions).slice(0,10);
   // tenQuestions.forEach(function(question){
   //   singleQuestion(question)
   // })
@@ -95,19 +99,22 @@ function showQuiz(quiz){
 
 function singleQuestion(question){
   console.log(question)
-  const answerArray = []
+  let answerArray = []
   answerArray.push(question.correct_answer, question.incorrect_answer_a, question.incorrect_answer_b, question.incorrect_answer_c)
-  console.log(answerArray)
+
+  let mixedAns =  shuffleArray(answerArray);
+  console.log(mixedAns)
+
   const mainContainer = document.getElementById("main-container");
   let quizDiv = document.createElement("div");
   quizDiv.id = "quiz-div";
   quizDiv.innerHTML = `
   <div class="question-content">${question.query}</div>
   <div class="answers">
-  <button class="answer-button">${question.correct_answer}</button>
-     <button class="answer-button">${question.incorrect_answer_a}</button>
-     <button class="answer-button">${question.incorrect_answer_b}</button>
-     <button class="answer-button">${question.incorrect_answer_c}</button>
+  <button class="answer-button">${mixedAns[0]}</button>
+     <button class="answer-button">${mixedAns[1]}</button>
+     <button class="answer-button">${mixedAns[2]}</button>
+     <button class="answer-button">${mixedAns[3]}</button>
   </div>
   `
 
