@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function(){
 
 const loginForm = document.getElementById("login-form")
@@ -30,40 +28,28 @@ function loginUser(){
 function containers(){
   const mainContainer = document.getElementById("main-container");
   let loginChange = document.createElement("div");
-  loginChange.id = "login-change"
+
   loginChange.innerHTML = `
   <div class="box">
   <h2>Welcome! Choose an option below:</h2>
     <div class="inner-box">
-      <button class="create" id="new-game-btn">Create a New Quiz</button>
+      <button class="create">Create a New Quiz</button>
     </div>
     <div id="flex-container">
-      <div> Past Scores </div>
       <div> Prizes </div>
+      <div> Past Scores </div>
+      </div>
+      <div class="bottom-box">
+      <button class="logout">Logout</button>
     </div>
   </div>
   `
   mainContainer.append(loginChange);
-  const newGameButton = document.getElementById("new-game-btn")
-  newGameButton.addEventListener("click", newGame)
 }
 
-function newGame(){
-  console.log("clicked new game")
-  fetch("http://localhost:3000/quizzes")
-  .then(response => response.json())
-  .then(data => slapQuizzesOnDom(data))
-}
 
-function slapQuizzesOnDom(data){
-  let loginChange = document.getElementById("login-change");
-  loginChange.remove();
-  data.forEach(gameCard)
-}
 
-function gameCard(quiz){
-  console.log(quiz);
-}
+
 
 
 
@@ -81,8 +67,14 @@ function mainOptions(){
   div.className = "main_options";
   mainOptionsDiv.append(div)
 }
-<<<<<<< HEAD
-=======
+
+
+
+
+
+
+
+
 
 
 //FETCH QUIZZES
@@ -105,4 +97,3 @@ function slapQuizzesOnDom(data){
     ul.append(li)
   })
 }
->>>>>>> b7af6b3b59ccf8f7b3015d0b8b16783e82770d3f
