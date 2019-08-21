@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 2019_08_20_155113) do
   create_table "questions", force: :cascade do |t|
     t.string "query"
     t.string "correct_answer"
+    t.string "incorrect_answer_a"
+    t.string "incorrect_answer_b"
+    t.string "incorrect_answer_c"
     t.integer "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,7 +37,6 @@ ActiveRecord::Schema.define(version: 2019_08_20_155113) do
   create_table "quizzes", force: :cascade do |t|
     t.string "category"
     t.string "difficulty"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
