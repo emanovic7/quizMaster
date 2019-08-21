@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-const loginForm = document.getElementById("login-form")
+  const loginForm = document.getElementById("login-form")
 
 })
+//Global Variables:
+const mainContainer = document.getElementById("main-container");
 
 
 //LOGGING IN
@@ -52,7 +54,6 @@ function containers(){
 
 
 function newQuiz(){
-  console.log("clicked new quiz");
   document.getElementById("login-change").remove();
   fetch("http://localhost:3000/quizzes")
   .then(response => response.json())
@@ -60,39 +61,54 @@ function newQuiz(){
 }
 
 //shuffle returned data
-function shuffleQuizzes(quizzes){
-  for(let i=quizzes.length-1; i>0; i--){
+function shuffleArray(array){
+  for(let i=array.length-1; i>0; i--){
     const j = Math.floor(Math.random() * (i + 1));
-    [quizzes[i], quizzes[j]] = [quizzes[j], quizzes[i]];
+    [array[i], array[j]] = [array[j], array[i]];
   }
   //pick first 10
-  return quizzes.slice(0,10);
+  return array.slice(0,10);
 }
 
 //SLAP ON DOM
 function slapQuizzesOnDom(quizzes){
-  let tenQuizzes = shuffleQuizzes(quizzes)
-  tenQuizzes.forEach(function(quiz){
+  let oneQuiz = shuffleArray(quizzes).slice(0,1)
+  oneQuiz.forEach(function(quiz){
     showQuiz(quiz)
   })
 }
 
 function showQuiz(quiz){
-  const mainContainer = document.getElementById("main-container");
-  let quizUl = document.createElement("ul");
+  // //countdown
+  // let h3 = document.createElement("h3");
+  // h3.innerText = "Quiz starting in 3..2..1"
+  // mainContainer.append(h3)
+  // setTimeout(function(){ h3.remove() }, 4000);
 
-  quiz.questions.forEach(function(question){
-    let li = document.createElement("li")
-    li.innerHTML = `
-      ${question.query}
-    `
-    quizUl.append(li)
+  let tenQuestions = shuffleArray(quiz.questions);
+  tenQuestions.forEach(function(question){
+    singleQuestion(question)
   })
-  mainContainer.append(quizUl)
 }
 
 
+function singleQuestion(question){
+  let quizUl = document.createElement("ul");
+  quizUl.id = "quiz-ul";
 
+  let li = document.createElement("li")
+
+  li.innerHTML = `
+    <h4>${question.query}</h4>
+    <button>${question.correct_answer}</button>
+    <button>${question.incorrect_answer_a}</button>
+    <button>${question.incorrect_answer_b}</button>
+    <button>${question.incorrect_answer_c}</button>
+  `
+
+  quizUl.append(li)
+  mainContainer.append(quizUl)
+}
 
 
 
