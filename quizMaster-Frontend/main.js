@@ -81,3 +81,28 @@ function mainOptions(){
   div.className = "main_options";
   mainOptionsDiv.append(div)
 }
+<<<<<<< HEAD
+=======
+
+
+//FETCH QUIZZES
+function fetchQuizzes(){
+  fetch("http://localhost:3000/quizzes")
+  .then(response => response.json())
+  .then(data => console.log(data))
+}
+
+
+function slapQuizzesOnDom(data){
+  const ul = document.getElementById("quizzes-ul");
+
+  data.results.forEach(function(quiz){
+    let li = document.createElement("li");
+    li.innerHTML = `
+      <p>${quiz.question}</p>
+    `
+
+    ul.append(li)
+  })
+}
+>>>>>>> b7af6b3b59ccf8f7b3015d0b8b16783e82770d3f

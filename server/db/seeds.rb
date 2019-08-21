@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'rest-client'
 require 'pry'
 
@@ -14,21 +6,33 @@ ActiveRecord::Base.connection.tables.each do |t|
 end
 
 
+
+##FETCH
 response = RestClient.get("https://opentdb.com/api.php?amount=50")
 response_hash = JSON.parse(response)
 #binding.pry
 
+#QUIZES
+all_quizes = [];
 response_hash["results"].each do |data|
- Quiz.create(category: data["category"], difficulty: data["difficulty"])
+ all_quizes << Quiz.create(category: data["category"], difficulty: data["difficulty"])
 end
 
-
-response_hash["results"].each do |data|
- question = Question.create(quiz_id: rand(1..50), query: data["question"], correct_answer: data["correct_answer"])
- Answer.create(question_id: question.id, content: data["correct_answer"], correct: true)
-  data["incorrect_answers"].each do |answer|
-    Answer.create(question_id: question.id, content: answer, correct: false)
+all_quizes.each do |quiz|
+  response_hash["results"].each do |data|
+   question = Question.create(quiz_id: quiz.id, query: data["question"], correct_answer: data["correct_answer"])
+   Answer.create(question_id: question.id, content: data["correct_answer"], correct: true)
+    data["incorrect_answers"].each do |answer|
+      Answer.create(question_id: question.id, content: answer, correct: false)
+    end
   end
 end
 
+
+
 puts "Done Seeding :)"
+
+
+
+
+#####
