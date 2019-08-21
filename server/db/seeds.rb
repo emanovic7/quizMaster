@@ -8,7 +8,7 @@ end
 
 
 ##FETCH
-response = RestClient.get("https://opentdb.com/api.php?amount=25")
+response = RestClient.get("https://opentdb.com/api.php?amount=25&type=multiple")
 response_hash = JSON.parse(response)
 #binding.pry
 
