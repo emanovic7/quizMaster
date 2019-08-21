@@ -28,12 +28,12 @@ function loginUser(){
 function containers(){
   const mainContainer = document.getElementById("main-container");
   let loginChange = document.createElement("div");
-
+  loginChange.id = "login-change";
   loginChange.innerHTML = `
   <div class="box">
   <h2>Welcome! Choose an option below:</h2>
     <div class="inner-box">
-      <button class="create">Create a New Quiz</button>
+      <button id="new-quiz" class="create">Create a New Quiz</button>
     </div>
     <div id="flex-container">
       <div> Prizes </div>
@@ -45,10 +45,51 @@ function containers(){
   </div>
   `
   mainContainer.append(loginChange);
+
+  const newQuizButton = document.getElementById("new-quiz");
+  newQuizButton.addEventListener("click", newQuiz)
 }
 
 
+function newQuiz(){
+  console.log("clicked new quiz");
+  document.getElementById("login-change").remove();
+  fetch("http://localhost:3000/quizzes")
+  .then(response => response.json())
+  .then(quizzes => slapQuizzesOnDom(quizzes))
+}
 
+//shuffle returned data
+function shuffleQuizzes(quizzes){
+  for(let i=quizzes.length-1; i>0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [quizzes[i], quizzes[j]] = [quizzes[j], quizzes[i]];
+  }
+  //pick first 10
+  return quizzes.slice(0,10);
+}
+
+//SLAP ON DOM
+function slapQuizzesOnDom(quizzes){
+  let tenQuizzes = shuffleQuizzes(quizzes)
+  tenQuizzes.forEach(function(quiz){
+    showQuiz(quiz)
+  })
+}
+
+function showQuiz(quiz){
+  const mainContainer = document.getElementById("main-container");
+  let quizUl = document.createElement("ul");
+
+  quiz.questions.forEach(function(question){
+    let li = document.createElement("li")
+    li.innerHTML = `
+      ${question.query}
+    `
+    quizUl.append(li)
+  })
+  mainContainer.append(quizUl)
+}
 
 
 
@@ -73,27 +114,4 @@ function mainOptions(){
 
 
 
-
-
-
-
-//FETCH QUIZZES
-function fetchQuizzes(){
-  fetch("http://localhost:3000/quizzes")
-  .then(response => response.json())
-  .then(data => console.log(data))
-}
-
-
-function slapQuizzesOnDom(data){
-  const ul = document.getElementById("quizzes-ul");
-
-  data.results.forEach(function(quiz){
-    let li = document.createElement("li");
-    li.innerHTML = `
-      <p>${quiz.question}</p>
-    `
-
-    ul.append(li)
-  })
-}
+////
