@@ -8,7 +8,7 @@ end
 
 
 ##FETCH
-response = RestClient.get("https://opentdb.com/api.php?amount=50")
+response = RestClient.get("https://opentdb.com/api.php?amount=25")
 response_hash = JSON.parse(response)
 #binding.pry
 
@@ -20,11 +20,19 @@ end
 
 all_quizes.each do |quiz|
   response_hash["results"].each do |data|
-   question = Question.create(quiz_id: quiz.id, query: data["question"], correct_answer: data["correct_answer"])
+   question = Question.create(
+   quiz_id: quiz.id,
+   query: data["question"],
+   correct_answer: data["correct_answer"],
+   incorrect_answer_a: data["incorrect_answers"][0],
+   incorrect_answer_b: data["incorrect_answers"][1],
+   incorrect_answer_c: data["incorrect_answers"][2]
+   )
+
    Answer.create(question_id: question.id, content: data["correct_answer"], correct: true)
-    data["incorrect_answers"].each do |answer|
-      Answer.create(question_id: question.id, content: answer, correct: false)
-    end
+   Answer.create(question_id: question.id, content: data["incorrect_answers"][0], correct: false)
+   Answer.create(question_id: question.id, content: data["incorrect_answers"][1], correct: false)
+   Answer.create(question_id: question.id, content: data["incorrect_answers"][2], correct: false)
   end
 end
 
