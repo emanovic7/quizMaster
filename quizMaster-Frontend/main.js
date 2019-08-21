@@ -108,8 +108,10 @@ function singleQuestion(question){
   let answerArray = []
   answerArray.push(question.correct_answer, question.incorrect_answer_a, question.incorrect_answer_b, question.incorrect_answer_c)
 
+  let correct = question.correct_answer;
+
   let mixedAns =  shuffleArray(answerArray);
-  console.log(mixedAns[0].correct)
+  console.log(mixedAns)
 
   const mainContainer = document.getElementById("main-container");
   let quizDiv = document.createElement("div");
@@ -126,14 +128,28 @@ function singleQuestion(question){
 
   quizDiv.addEventListener("mouseover", func1, false);
   quizDiv.addEventListener("mouseout", func2, false);
+  quizDiv.addEventListener("click", function(){
+    if(event.target.classList.contains("answer-button")){
+      if(event.target.innerText === correct){
+        event.target.setAttribute("style", "background-color:green;")
+      }
+      else {
+        event.target.setAttribute("style", "background-color:red;")
+      }
+    }
+  })
 
   mainContainer.append(quizDiv)
+}
+
+function checkAnswer(){
+
 }
 
 
 function func1(){
   if(event.target.classList.contains("answer-button")){
-   event.target.setAttribute("style", "background-color:green;")
+   event.target.setAttribute("style", "background-color:yellow;")
   }
 }
 
