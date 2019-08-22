@@ -15,6 +15,12 @@ function shuffleArray(array){
   return array;
 }
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 
 
 
@@ -81,9 +87,9 @@ function slapQuizzesOnDom(quizzes){
   })
 }
 
-let number;
+let number = 1;
 
-function showQuiz(quiz, number=0){
+function showQuiz(quiz, number){
  const mainContainer = document.getElementById("main-container");
  let scoreButton = document.createElement("button")
  scoreButton.id = "scr-btn";
@@ -94,13 +100,15 @@ function showQuiz(quiz, number=0){
 
  let tenQuestions = shuffleArray(quiz.questions).slice(0,10);
 
- singleQuestion(tenQuestions[number])
+ let maxNum = tenQuestions.length;
+ let randNum = getRandomInt(1, maxNum)
+ singleQuestion(tenQuestions[randNum])
  // }
 }
 
 
 function singleQuestion(question){
-  // console.log(question)
+   console.log(question)
   let answerArray = []
   answerArray.push(question.correct_answer, question.incorrect_answer_a, question.incorrect_answer_b, question.incorrect_answer_c)
 
@@ -142,17 +150,23 @@ const answerDiv = document.getElementById("quiz-div")
            }
          }
    }
- })
 
    let scoreButton = document.getElementById("scr-btn")
    setTimeout(function() {
      quizDiv.remove();
      scoreButton.remove();
-     number = 1;
-     //number++
-     showQuiz(cloneOfQuiz, number)
 
-   }, 3000);
+     number++
+     if(number < 11){
+       showQuiz(cloneOfQuiz, number)
+     }
+     else{
+       printScore();
+     }
+
+   }, 1000);
+
+ })
 
 }
 
@@ -168,6 +182,20 @@ function func2(){
   }
 }
 
+function printScore(){
+  const resultsContainer = document.getElementById("results-div");
+
+  mainContainer.remove();
+  let scoreDiv = document.createElement("div");
+  scoreDiv.innerHTML = `
+    <h2>YOU HAVE COMPLETED THE CHALLENGE</h2>
+    <h2>THIS IS YOUR SCORE</h2>
+    <h1>score</h1>
+    <p>return right and wrong answers</p>
+  `
+
+  resultsContainer.append(scoreDiv)
+}
 
 
 function fetchUsers(){
