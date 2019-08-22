@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function(){
   const loginForm = document.getElementById("login-form")
 })
 
-
 //Global Variables:
 const mainContainer = document.getElementById("main-container");
 
@@ -19,12 +18,9 @@ function shuffleArray(array){
 
 
 
-
 //LOGGING IN
 const loginForm = document.getElementById("login-form");
 loginForm.addEventListener("submit", loginUser);
-
-
 function loginUser(){
   event.preventDefault();
   let name = event.target.querySelector("#username").value;
@@ -38,6 +34,7 @@ function loginUser(){
     containers();
   }
 }
+
 
 
 function containers(){
@@ -60,7 +57,6 @@ function containers(){
   </div>
   `
   mainContainer.append(loginChange);
-
   const newQuizButton = document.getElementById("new-quiz");
   newQuizButton.addEventListener("click", newQuiz)
 }
@@ -74,44 +70,43 @@ function newQuiz(){
 }
 
 
+
+let cloneOfQuiz;
 //SLAP ON DOM
 function slapQuizzesOnDom(quizzes){
   let oneQuiz = shuffleArray(quizzes).slice(0,1)
   oneQuiz.forEach(function(quiz){
-    showQuiz(quiz)
+    showQuiz(quiz);
+    cloneOfQuiz=quiz
   })
 }
 
-function showQuiz(quiz){
-  const mainContainer = document.getElementById("main-container");
-  let scoreButton = document.createElement("button")
-  scoreButton.innerHTML = `
-    <h3 align="center">Current Score: ${quiz.score}</h3>
-  `
-  mainContainer.append(scoreButton)
-  // //countdown
-  // let h3 = document.createElement("h3");
-  // h3.innerText = "Quiz starting in 3..2..1"
-  // mainContainer.append(h3)
-  // setTimeout(function(){ h3.remove() }, 4000);
+let number;
 
-  let tenQuestions = shuffleArray(quiz.questions).slice(0,10);
-  // tenQuestions.forEach(function(question){
-  //   singleQuestion(question)
-  // })
-  singleQuestion(tenQuestions[0])
+function showQuiz(quiz, number=0){
+ const mainContainer = document.getElementById("main-container");
+ let scoreButton = document.createElement("button")
+ scoreButton.id = "scr-btn";
+ scoreButton.innerHTML = `
+   <h3 align="center">Current Score: ${quiz.score}</h3>
+ `
+ mainContainer.append(scoreButton)
+
+ let tenQuestions = shuffleArray(quiz.questions).slice(0,10);
+
+ singleQuestion(tenQuestions[number])
+ // }
 }
 
 
 function singleQuestion(question){
-  console.log(question)
+  // console.log(question)
   let answerArray = []
   answerArray.push(question.correct_answer, question.incorrect_answer_a, question.incorrect_answer_b, question.incorrect_answer_c)
 
   let correct = question.correct_answer;
 
   let mixedAns =  shuffleArray(answerArray);
-  console.log(mixedAns)
 
   const mainContainer = document.getElementById("main-container");
   let quizDiv = document.createElement("div");
@@ -128,24 +123,38 @@ function singleQuestion(question){
 
   quizDiv.addEventListener("mouseover", func1, false);
   quizDiv.addEventListener("mouseout", func2, false);
-  quizDiv.addEventListener("click", function(){
-    if(event.target.classList.contains("answer-button")){
-      if(event.target.innerText === correct){
-        event.target.setAttribute("style", "background-color:green;")
-      }
-      else {
-        event.target.setAttribute("style", "background-color:red;")
-      }
-    }
-  })
+
 
   mainContainer.append(quizDiv)
+
+const answerDiv = document.getElementById("quiz-div")
+ answerDiv.addEventListener("click", function(event){
+   if (event.target.className === "answer-button"){
+
+         if(event.target.classList.contains("answer-button")){
+           if(event.target.innerText === correct){
+             console.log("correct")
+             event.target.setAttribute("style", "background-color:green;")
+           }
+           else {
+             console.log("false")
+             event.target.setAttribute("style", "background-color:red;")
+           }
+         }
+   }
+ })
+
+   let scoreButton = document.getElementById("scr-btn")
+   setTimeout(function() {
+     quizDiv.remove();
+     scoreButton.remove();
+     number = 1;
+     //number++
+     showQuiz(cloneOfQuiz, number)
+
+   }, 3000);
+
 }
-
-function checkAnswer(){
-
-}
-
 
 function func1(){
   if(event.target.classList.contains("answer-button")){
