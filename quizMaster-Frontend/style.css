@@ -93,7 +93,9 @@ input[type=text], select {
     margin: auto;
     display: inline-block;
     /*border: 1px solid #ccc;*/
+    border-radius: 10px;
     box-sizing: border-box;
+    box-shadow: 5px 5px;
   }
   .inner-box {
       text-align: center;
@@ -126,15 +128,14 @@ input[type=text], select {
   .logout {
     font-family: 'Acme', sans-serif;
     text-align: center;
-    color: black;
     font-size: 2em;
     width: 50%;
     padding: 12px 20px;
     /*margin: 8px 0;*/
     margin: auto;
     display: inline-block;
-    /*border: 1px solid #ccc;*/
     border-radius: 10px;
+    box-shadow: 5px 5px;
     box-sizing: border-box;
   }
   .bottom-box {
@@ -151,10 +152,34 @@ input[type=text], select {
       text-align: center;
       background-color: lightgray;
       width: 900px;
-      height: 600px;
+      height: 500px;
       margin: auto;
       border-radius: 10px;
       box-shadow: 10px 10px;
+  }
+
+  #results-msg {
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    color: red;
+    font-size: 4em;
+  }
+
+  #your-score {
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    color:rgb(73, 71, 71);
+    font-size: 3em;
+    background-color:rgb(120, 150, 220);
+  }
+
+  #scr-num {
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    color: black;
+    font-weight: strong;
+    font-size: 6em;
+    background-color: white;
   }
 
   .question-content {
@@ -220,6 +245,16 @@ input[type=text], select {
     color: white;
     font-weight: strong;
   }
+
+  #quiz-end {
+        text-align: center;
+        background-color: lightgray;
+        width: 900px;
+        height: 500px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 10px 10px;
+  } */
 
 /* #scr-btn-box {
     text-align: center;

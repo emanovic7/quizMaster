@@ -102,16 +102,12 @@ function showQuiz(quiz, number){
    `
  subContainerDiv.append(scoreButton)
 
- let questions = quiz.questions;
- console.log(questions)
+ let tenQuestions = shuffleArray(quiz.questions);
 
- let maxNum = questions.length;
- let randNum = getRandomInt(0, maxNum)
- console.log(randNum)
- let currQuestion = questions[randNum];
- singleQuestion(currQuestion)
+ let maxNum = tenQuestions.length;
+ let randNum = getRandomInt(1, maxNum)
+ singleQuestion(tenQuestions[randNum])
  // }
- questions.splice(randNum,1);
 }
 
 
@@ -192,18 +188,21 @@ function func2(){
 }
 
 function printScore(){
+  // let quizDiv = document.getElementById("quiz-div")
+  // console.log(quizDiv)
   const resultsContainer = document.getElementById("results-div");
-
-  mainContainer.remove();
+  // console.log(mainContainer)
+  // quizDiv.remove();
   let scoreDiv = document.createElement("div");
   scoreDiv.innerHTML = `
-    <h2>YOU HAVE COMPLETED THE CHALLENGE</h2>
-    <h2>THIS IS YOUR SCORE</h2>
-    <h1>${score}</h1>
-    <p>return right and wrong answers</p>
+  <div id="quiz-end">
+    <h2 id="results-msg">You have completed the QuizMaster challenge!</h2>
+    <h2 id="your-score">This is your score:</h2>
+    <h2 id="scr-num">${score}</h2>
+    </div>
   `
 
-  resultsContainer.append(scoreDiv)
+  mainContainer.append(scoreDiv)
 }
 
 
