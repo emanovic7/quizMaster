@@ -45,14 +45,14 @@ function containers(){
   <div class="box">
   <h2>Welcome! Choose an option below:</h2>
     <div class="inner-box">
-      <button id="new-quiz" class="create">Create a New Quiz</button>
+      <button id="new-quiz" class="create text">Create a New Quiz</button>
     </div>
     <div id="flex-container">
-      <div> Prizes </div>
-      <div> Past Scores </div>
+      <div><span class="span-text"> Prizes </span></div>
+      <div><span class="span-text"> Past Scores </span></div>
       </div>
       <div class="bottom-box">
-      <button class="logout">Logout</button>
+      <button class="logout text">Logout</button>
     </div>
   </div>
   `
@@ -69,7 +69,7 @@ function newQuiz(){
   .then(quizzes => slapQuizzesOnDom(quizzes))
 }
 
-
+const subContainerDiv = document.getElementById("sub-container")
 
 let cloneOfQuiz;
 //SLAP ON DOM
@@ -88,9 +88,11 @@ function showQuiz(quiz, number=0){
  let scoreButton = document.createElement("button")
  scoreButton.id = "scr-btn";
  scoreButton.innerHTML = `
-   <h3 align="center">Current Score: ${quiz.score}</h3>
- `
- mainContainer.append(scoreButton)
+ <div>
+   <div><span class="span-text-2"> Current Score: ${quiz.score} </span></div>
+ </div>
+   `
+ subContainerDiv.append(scoreButton)
 
  let tenQuestions = shuffleArray(quiz.questions).slice(0,10);
 
@@ -152,7 +154,7 @@ const answerDiv = document.getElementById("quiz-div")
      //number++
      showQuiz(cloneOfQuiz, number)
 
-   }, 3000);
+   }, 7000);
 
 }
 
