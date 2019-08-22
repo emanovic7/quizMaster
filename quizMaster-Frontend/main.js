@@ -100,11 +100,13 @@ function showQuiz(quiz, number){
  `
  mainContainer.append(scoreButton)
 
- let tenQuestions = shuffleArray(quiz.questions);
+ let questions = quiz.questions;
+ console.log(questions)
 
- let maxNum = tenQuestions.length;
- let randNum = getRandomInt(1, maxNum)
- singleQuestion(tenQuestions[randNum])
+ let maxNum = questions.length;
+ let randNum = getRandomInt(0, maxNum)
+ console.log(randNum)
+ singleQuestion(questions[randNum])
  // }
 }
 
