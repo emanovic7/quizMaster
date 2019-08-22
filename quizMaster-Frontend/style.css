@@ -75,9 +75,10 @@ input[type=text], select {
   .box {
       text-align: center;
       width: 1200px;
-      height: 900px;
+      height: 800px;
       background-color: lightgrey;
-      border-radius: 5%;
+      border-radius: 10px;
+      box-shadow: 10px 10px;
       margin: auto;
   }
 
@@ -91,8 +92,7 @@ input[type=text], select {
     /*margin: 8px 0;*/
     margin: auto;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    /*border: 1px solid #ccc;*/
     box-sizing: border-box;
   }
   .inner-box {
@@ -100,7 +100,8 @@ input[type=text], select {
       width: 900px;
       height: 100px;
       background-color: white;
-      border-radius: 4px;
+      border-radius: 10px;
+      box-shadow: 10px 10px;
       margin: auto;
   }
 
@@ -108,17 +109,18 @@ input[type=text], select {
       display: flex;
       margin: 20px 150px 20px 150px;
       background-color: white;
-      border-radius: 4px;
+      border-radius: 10px;
+      box-shadow: 10px 10px;
     }
 
   #flex-container > div {
-    background-color: lightcyan;
+    background-color: rgb(120, 150, 220);
     font-family: 'Acme', sans-serif;
     color: rgb(17, 48, 48);
     margin: auto;
     padding: 150px;
     font-size: 2em;
-    border-radius: 4px;
+    border-radius: 10px;
   }
 
   .logout {
@@ -131,8 +133,8 @@ input[type=text], select {
     /*margin: 8px 0;*/
     margin: auto;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    /*border: 1px solid #ccc;*/
+    border-radius: 10px;
     box-sizing: border-box;
   }
   .bottom-box {
@@ -140,7 +142,8 @@ input[type=text], select {
       width: 900px;
       height: 100px;
       background-color: white;
-      border-radius: 4px;
+      border-radius: 10px;
+      box-shadow: 10px 10px;
       margin: auto;
   }
 
@@ -150,7 +153,8 @@ input[type=text], select {
       width: 900px;
       height: 600px;
       margin: auto;
-      border-radius: 4px;
+      border-radius: 10px;
+      box-shadow: 10px 10px;
   }
 
   .question-content {
@@ -163,7 +167,7 @@ input[type=text], select {
     color: red;
     font-size: 2em;
     padding: 20px;
-    border-radius: 4px;
+    border-radius: 10px;
   }
 
   .answer-button {
@@ -173,10 +177,59 @@ input[type=text], select {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    /*border: 1px solid #ccc;*/
+    border-radius: 10px;
     box-sizing: border-box;
+    box-shadow: 5px 5px;
   }
+
+  .text {
+    font-size: 2em;
+    color: rgb(73, 71, 71);
+}
+
+.span-text {
+  font-size: 1em;
+  color: rgb(73, 71, 71);
+}
+
+#scr-btn {
+    text-align: center;
+    margin: auto;
+    background-color: red;
+    font-family: 'Acme', sans-serif;
+    font-size: 2em;
+    width: 40%;
+    height: 40%;
+    padding: 12px 20px;
+    /*margin: 8px 0;*/
+    display: inline-block;
+    /*border: 1px solid #ccc;*/
+    border-radius: 10px;
+    box-shadow: 5px 5px;
+    box-sizing: border-box;
+}
+
+#sub-container {
+    text-align: center;
+    margin: auto;
+}
+
+.span-text-2 {
+    font-size: 1em;
+    color: white;
+    font-weight: strong;
+  }
+
+/* #scr-btn-box {
+    text-align: center;
+    width: 900px;
+    height: 100px;
+    background-color: red;
+    border-radius: 4px;
+    margin: auto;
+} */
+
   /*
   #main-options {
     text-align: center;
@@ -214,7 +267,7 @@ input[type=text], select {
 
 
 
-/* body, html {
+body, html {
     width: 100vw;
     height: 100vh;
 }
@@ -234,6 +287,7 @@ body {
     overflow: hidden;
     top: 0;
     left: 0;
+    z-index: -1;
 }
 
 .bubble {
@@ -326,9 +380,9 @@ body {
     font-size: 9em;
     opacity: 0.5;
     animation-duration: 12s;
-/*}*/
+}
 
-/*
+
 @keyframes flying {
     0% {
         top: -100px;
@@ -395,4 +449,3 @@ body {
     color: white;
     font-weight: strong;
 } 
-*/
