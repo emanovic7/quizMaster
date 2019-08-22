@@ -97,7 +97,7 @@ function showQuiz(quiz, number){
  scoreButton.id = "scr-btn";
  scoreButton.innerHTML = `
  <div>
-   <div><span class="span-text-2"> Current Score: ${quiz.score} </span></div>
+   <div><span class="span-text-2"> Current Score: ${score} </span></div>
  </div>
    `
  subContainerDiv.append(scoreButton)
