@@ -197,11 +197,13 @@ function printScore(){
   mainContainer.remove();
   let scoreDiv = document.createElement("div");
   scoreDiv.innerHTML = `
-    <h2>YOU HAVE COMPLETED THE CHALLENGE</h2>
-    <h2>THIS IS YOUR SCORE</h2>
-    <h1>${score}</h1>
-    <p>return right and wrong answers</p>
-    <button id="try-again" class="answer-button">Try Again</button>
+    <div id="quiz-end">
+      <h2 id="results-msg">You have completed the QuizMaster challenge!</h2>
+      <h2 id="your-score">This is your score:</h2>
+      <h2 id="scr-num">${score}</h2>
+    </div>
+
+    <button id="try-again" class="try-again-button">Try Again</button>
   `
 
 
@@ -210,6 +212,7 @@ function printScore(){
   let startOverBtn = document.getElementById("try-again");
   startOverBtn.addEventListener("click", startOver)
 }
+
 
 function startOver(){
   console.log("clicked startover")
