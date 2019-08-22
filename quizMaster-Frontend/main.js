@@ -108,8 +108,10 @@ function showQuiz(quiz, number){
  let maxNum = questions.length;
  let randNum = getRandomInt(0, maxNum)
  console.log(randNum)
- singleQuestion(questions[randNum])
+ let currQuestion = questions[randNum];
+ singleQuestion(currQuestion)
  // }
+ questions.splice(randNum,1);
 }
 
 
