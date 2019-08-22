@@ -51,7 +51,7 @@ function containers(){
   <div class="box">
   <h2>Welcome! Choose an option below:</h2>
     <div class="inner-box">
-      <button id="new-quiz" class="create text">Create a New Quiz</button>
+      <button id="new-quiz" class="create text">take Quiz</button>
     </div>
     <div id="flex-container">
       <div><span class="span-text"> Prizes </span></div>
@@ -201,16 +201,27 @@ function printScore(){
     <h2>THIS IS YOUR SCORE</h2>
     <h1>${score}</h1>
     <p>return right and wrong answers</p>
+    <button id="try-again" class="answer-button">Try Again</button>
   `
 
+
   resultsContainer.append(scoreDiv)
+
+  let startOverBtn = document.getElementById("try-again");
+  startOverBtn.addEventListener("click", startOver)
+}
+
+function startOver(){
+  console.log("clicked startover")
+  let number = 1;
+  containers()
 }
 
 
-function fetchUsers(){
+function returningUser(){
   fetch("http://localhost:3000/users")
   .then(response => response.json())
-  .then(mainOptionsDiv)
+  .then(data => console.log(data))
 }
 
 //MAIN PAGE OPTIONS
