@@ -88,17 +88,19 @@ function slapQuizzesOnDom(quizzes){
 }
 
 let number = 1;
+let score = 0
 
 function showQuiz(quiz, number){
+  console.log(quiz)
  const mainContainer = document.getElementById("main-container");
  let scoreButton = document.createElement("button")
  scoreButton.id = "scr-btn";
  scoreButton.innerHTML = `
-   <h3 align="center">Current Score: ${quiz.score}</h3>
+   <h3 align="center">Current Score: ${score}</h3>
  `
  mainContainer.append(scoreButton)
 
- let tenQuestions = shuffleArray(quiz.questions).slice(0,10);
+ let tenQuestions = shuffleArray(quiz.questions);
 
  let maxNum = tenQuestions.length;
  let randNum = getRandomInt(1, maxNum)
@@ -141,6 +143,7 @@ const answerDiv = document.getElementById("quiz-div")
 
          if(event.target.classList.contains("answer-button")){
            if(event.target.innerText === correct){
+             score += 10;
              console.log("correct")
              event.target.setAttribute("style", "background-color:green;")
            }
@@ -164,7 +167,7 @@ const answerDiv = document.getElementById("quiz-div")
        printScore();
      }
 
-   }, 1000);
+   }, 200);
 
  })
 
@@ -190,7 +193,7 @@ function printScore(){
   scoreDiv.innerHTML = `
     <h2>YOU HAVE COMPLETED THE CHALLENGE</h2>
     <h2>THIS IS YOUR SCORE</h2>
-    <h1>score</h1>
+    <h1>${score}</h1>
     <p>return right and wrong answers</p>
   `
 
