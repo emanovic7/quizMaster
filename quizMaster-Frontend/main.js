@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
   const loginForm = document.getElementById("login-form")
+  const regsiterForm = document.getElementById("register")
 })
 
 //Global Variables:
@@ -35,10 +36,32 @@ function loginUser(){
     alert("Username can't be empty!");
   }
   else{
-    const loginForm = document.getElementById("login-form");
-    loginForm.remove();
+    removeForms();
     containers();
   }
+}
+
+//REGISTERING
+const registerForm = document.getElementById("register");
+registerForm.addEventListener("submit", registerUser);
+function registerUser() {
+  event.preventDefault();
+  let username = event.target.querySelector("#username").value;
+  if(username === ""){
+    alert("Username can't be empty!");
+  }
+  else{
+    user = new User(username)
+    removeForms();
+    containers();
+  }
+}
+
+function removeForms(){
+  let loginForm = document.getElementById("login-form");
+  let registerForm = document.getElementById("register");
+  registerForm.remove();
+  loginForm.remove();
 }
 
 
@@ -127,6 +150,7 @@ function singleQuestion(question){
   const mainContainer = document.getElementById("main-container");
   let quizDiv = document.createElement("div");
   quizDiv.id = "quiz-div";
+  console.log(question.query.length)
   quizDiv.innerHTML = `
   <div class="question-content">${question.query}</div>
   <div id="ans-btn" class="answers">
